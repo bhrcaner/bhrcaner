@@ -1,7 +1,6 @@
 - 👋 Merhaba, ben @bhrcaner
 - 👀 Oyun,teknoloji,tasarım ve yazılımla İlgileniyorum 
 - 🌱 Şu anda öğreniyorum ve üretiyorum.
-- 💞️ Sizlerle küçük İşbirliktelikleri yapmak istiyorum  veya iletişime  açık gelişebileceğim şirketlerle ücretsiz çalışmak istiyorum.
-- 📫Bana nasıl ulaşabilirsiniz...canerbahri1@gmail.com
-- https://www.linkedin.com/in/bahri-caner-863b7b200/
+- 💞️ Sizlerle küçük İşbirliktelikleri yapmak istiyorum veya iletişime açık gelişebileceğim şirketlerde ücretsiz çalışmak istiyorum.
+- 📫Bana nasıl ulaşabilirsiniz...canerbahri1@gmail.com 
 --->
