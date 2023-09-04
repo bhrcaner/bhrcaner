@@ -2,4 +2,4 @@
 - 👀 I am interested in games, technology, design and software
 - 🌱I am currently learning and producing.
 - 💞️I want to work for free or for minimum wage in companies that are open to communication and where I can improve myself.
-- 📫How can you contact me...canerbahri1@gmail.com
+- 📫How can you contact me...   canerbahri1@gmail.com
