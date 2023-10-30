@@ -1,5 +1,4 @@
-[![MasterHead]![back-end-developer-programlama-dil-secimi](https://github.com/bhrcaner/bhrcaner/assets/124830301/1bbdb23e-0823-499f-9cc2-f29ad7488897)
-
+[![MasterHead]!
 ￼
 <h1 align="center">Hi 👋, I'm Bahri caner</h1>
 <h3 align="center">A possionate Web3 developer from Türkiye</h3>
