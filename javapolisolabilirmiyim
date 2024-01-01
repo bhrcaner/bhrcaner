@@ -1,0 +1,73 @@
+package polisolabilirmiyim;
+
+/* 
+Polis olabilir miyim? 
+Yaş: 18-26
+Boy: Kadın en az 1.62, Erkek en az 1.67 
+Beden Kitle Endeksi (kg/m2): 18-27
+*/
+import java.util.Scanner; 
+
+public class Polisolabilirmiyim {
+
+    public static void main(String[] args) {
+        Scanner oku = new Scanner(System.in); 
+
+	System.out.print("Cinsiyet: "); 
+	String cinsiyet = oku.next(); 
+	System.out.print("Yaş: "); 
+	int yas = oku.nextInt(); 
+	System.out.print("Boy (m): "); 
+	double boy = oku.nextDouble(); 
+	System.out.print("Kilo (kg): "); 
+	double kilo = oku.nextDouble(); 
+        double bke = kilo/(boy*boy);   // Beden Kitle Endeksi
+        
+        switch(cinsiyet.toUpperCase()) {
+
+            case "KADIN": 
+                
+                if (yas>=18 && yas<=26) 
+                    if (boy>=1.62) 
+                        if (bke>=18 && bke<=27) 
+                            System.out.println("Polis olabilirsiniz..."); 
+                        else 
+                            System.out.println("Beden Kitle Endeksiniz uygun değil!"); 
+                    else 
+                        System.out.println("Boyunuz uygun değil!"); 
+                else 
+                    System.out.println("Yaşınız uygun değil!"); 
+                
+                break; 
+                
+            case "ERKEK":
+                
+                boolean olabilir = true; 
+            
+                if (yas<18 || yas>26) {
+                    System.out.println("Yaşınız uygun değil!"); 
+                    olabilir = false; 
+                }
+            
+                if (boy<1.67) {
+                    System.out.println("Boyunuz uygun değil!"); 
+                    olabilir = false; 
+                }
+
+                if (bke<18 || bke>27) {
+                    System.out.println("Beden Kitle Endeksiniz uygun değil!"); 
+                    olabilir = false; 
+                }
+
+                if (olabilir) 
+                    System.out.println("Polis olabilirsiniz..."); 
+                
+                break; 
+                
+            default:
+                System.out.println("Cinsiyet girişi hatalı. İşlem yapılamadı!");
+
+        }
+    }
+
+}
