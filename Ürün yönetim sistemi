@@ -1,0 +1,65 @@
+
+
+
+              Save Code
+
+             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-HEEKBHE\SQLEXPRESS;Initial Catalog=ProductDB;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into products values(@productid,@productname,@price,@status,@datecreated)", con);
+            cmd.Parameters.AddWithValue("@ProductId", int.Parse(textBox1.Text));
+            cmd.Parameters.AddWithValue("@ProductName", textBox2.Text);
+            cmd.Parameters.AddWithValue("@Price", textBox3.Text);
+            cmd.Parameters.AddWithValue("@Status", textBox4.Text);
+            cmd.Parameters.AddWithValue("@DateCreated", dateTimePicker1.Value);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Record Saved Successfully");
+
+
+   
+
+
+          Add Code
+
+
+         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-HEEKBHE\SQLEXPRESS;Initial Catalog=ProductDB;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from products", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+
+
+        
+
+        Delete Code
+
+
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-HEEKBHE\SQLEXPRESS;Initial Catalog=ProductDB;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete products where productid=@productid", con);
+            cmd.Parameters.AddWithValue("@ProductId", int.Parse(textBox1.Text));
+            
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Record Deleted Successfully");
+
+
+      
+         Form Load Code
+
+
+         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-HEEKBHE\SQLEXPRESS;Initial Catalog=ProductDB;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from products", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+
+
+
+   
