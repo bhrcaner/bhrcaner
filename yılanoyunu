@@ -1,0 +1,89 @@
+ArrayList<Integer> x = new ArrayList<Integer>();
+ArrayList<Integer> y = new ArrayList<Integer>();
+
+int w =30,h =30,blocks=20,direction =2,foodX=15,foodY=15,speed = 8;
+
+int[]x_direction = {0,0,1,-1};
+int[]y_direction = {1,-1,0,0};
+
+boolean gameOver = false;
+
+
+
+void setup(){
+
+size(600,600);
+x.add(0);
+y.add(15);
+}
+
+void draw(){
+
+background(0);
+
+fill (56,168,50);
+
+for(int i =0; i<x.size(); i++) rect(x.get(i)*blocks,y.get(i)*blocks,blocks,blocks);
+
+if(!gameOver){
+  
+  fill(255);
+  rect(foodX*blocks,foodY*blocks,blocks,blocks);
+  
+  textAlign(LEFT);
+  textSize(25);
+  fill(255);
+  text("Skor : " + x.size(), 10 , 10 , width-20,50);
+  
+if(frameCount%speed == 0){
+
+  x.add(0,x.get(0)+x_direction[direction]);
+  y.add(0,y.get(0)+y_direction[direction]);
+  
+  if(x.get(0)<0 || y.get(0) <0 || x.get(0) > w || y.get(0) > h) gameOver = true;
+  for(int i = 1;i<x.size();i++){
+  if(x.get(0) == x.get(i) && y.get(0) == y.get(i)) gameOver = true;
+  }
+  if(x.get(0)==foodX && y.get(0) == foodY){
+   if(x.size()%5 == 0 && speed>=2) speed-=1;
+  foodX = (int) random(0,w);
+  foodY = (int) random(0,h);
+  }else{
+   x.remove(x.size()-1);
+  y.remove(y.size()-1);
+  }
+  
+ 
+
+}
+
+
+}else{
+
+fill(210,186,18);
+textSize(30);
+textAlign(CENTER);
+text("Oyun bitti \n Skorunuz : " + x.size()+"\n Tekrar başlamak için ENTER",width/2,height/2);
+if(keyCode == ENTER){
+
+x.clear();
+y.clear();
+x.add(0);
+y.add(15);
+direction =2;
+speed = 8;
+gameOver = false;
+}
+
+}
+}
+
+void keyPressed(){
+if(keyCode ==DOWN) direction =0;
+if(keyCode ==UP) direction =1;
+if(keyCode ==RIGHT) direction =2;
+if(keyCode ==LEFT) direction =3;
+
+
+
+}
