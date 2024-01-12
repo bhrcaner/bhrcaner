@@ -1,0 +1,62 @@
+             Add Code
+
+
+             con.Open();
+            SqlCommand cnn = new SqlCommand("insert into studentab(studentid,studentname,section,status,datecreated) values(@studentid,@studentname,@section,@status,@datecreated)", con);
+            cnn.Parameters.AddWithValue("@StudentId", int.Parse(textBox1.Text));
+            cnn.Parameters.AddWithValue("@StudentName", textBox2.Text);
+            cnn.Parameters.AddWithValue("@Section", textBox3.Text);
+            cnn.Parameters.AddWithValue("@Status", textBox4.Text);
+            cnn.Parameters.AddWithValue("@DateCreated", dateTimePicker1.Value);
+            cnn.ExecuteNonQuery();
+            con.Close();
+            BindData();
+
+
+
+          void BindData()
+        {
+            SqlCommand cnn = new SqlCommand("select * from studentab", con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
+
+        }
+
+
+
+
+
+        Delete Code
+
+
+       con.Open();
+            SqlCommand cnn = new SqlCommand("delete studentab where studentid=@studentid", con);
+            cnn.Parameters.AddWithValue("@StudentId", int.Parse(textBox1.Text));
+
+            cnn.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Record Deleted Successfully");
+            BindData();
+
+
+
+
+
+       Clear Code
+
+
+       textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+
+
+
+
+
+      Form_Load Code
+
+
+      BindData();
