@@ -1,0 +1,59 @@
+
+
+         Add Code
+
+         con.Open();
+            SqlCommand cnn = new SqlCommand("insert into ordertab(orderid,ordername,customername,amount) values(@orderid,@ordername,@customername,@amount)", con);
+            cnn.Parameters.AddWithValue("@OrderId", int.Parse(textBox1.Text));
+            cnn.Parameters.AddWithValue("@OrderName", textBox2.Text);
+            cnn.Parameters.AddWithValue("@CustomerName", textBox3.Text);
+            cnn.Parameters.AddWithValue("@Amount", textBox4.Text);
+            cnn.ExecuteNonQuery();
+            con.Close();
+            BindData();
+
+
+
+
+        void BindData()
+        {
+            SqlCommand cnn = new SqlCommand("select * from ordertab", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn);
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
+        }
+
+
+
+
+       Delete Code
+
+
+
+       con.Open();
+            SqlCommand cnn = new SqlCommand("delete ordertab where orderid=@orderid", con);
+            cnn.Parameters.AddWithValue("@OrderId", int.Parse(textBox1.Text));
+
+            cnn.ExecuteNonQuery();
+            con.Close();
+            BindData();
+            MessageBox.Show("Record Deleted Successfully");
+
+
+
+
+        Clear Code
+
+
+        textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+
+
+
+        Order Load Code
+
+
+        BindData();
